@@ -8,7 +8,7 @@ export default function Portfolio() {
       title: "Tat Chicken",
       category: "Gastronomie",
       description: "Moderne Website für ein koreanisches Restaurant mit schön gestaltende Speisekarte.",
-      image: "lovable-uploads/TATCOVER.png",
+      image: "lovable-uploads/TATSpeisekartecover.png",
       tags: ["Webdesign", "Responsive Design", "SEO"],
       website: "https://tatchicken.de"
     },
