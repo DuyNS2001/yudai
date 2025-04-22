@@ -34,17 +34,63 @@ export default function Contact() {
           </div>
         </div>
       </motion.section>
+      <div className="mt-10 md:mt-0">
+              <motion.div
+                whileHover={{ scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="hover:shadow-lg transition-shadow duration-300"
+              >
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Kontaktinformationen</h2>
+                <div className="prose dark:prose-invert">
+                  <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg mb-6">
+                    <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">Adresse</h3>
+                    <p className="text-gray-600 dark:text-gray-300">
+                      Yudai GmbH<br />
+                      Musterstraße 123<br />
+                      12345 Musterstadt<br />
+                      Deutschland
+                    </p>
+                  </div>
 
-      {/* Map Section (Placeholder) */}
-      <section className="py-12 bg-gray-50 dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="aspect-w-16 aspect-h-8 md:aspect-h-6">
-            <div className="w-full h-full bg-gray-300 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-              <p className="text-gray-600 dark:text-gray-400">Hier würde eine Karte angezeigt werden</p>
+                  <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg mb-6">
+                    <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">Kontakt</h3>
+                    <p className="text-gray-600 dark:text-gray-300 mb-2">
+                      <strong>E-Mail:</strong>{' '}
+                      <a href="mailto:info@yudai.de" className="text-yudai-blue dark:text-blue-400 hover:underline">
+                        info@yudai.de
+                      </a>
+                    </p>
+                    <p className="text-gray-600 dark:text-gray-300">
+                      <strong>Telefon:</strong>{' '}
+                      <a href="tel:+49123456789" className="text-yudai-blue dark:text-blue-400 hover:underline">
+                        +49 123 456789
+                      </a>
+                    </p>
+                  </div>
+
+                  <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
+                    <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">Geschäftszeiten</h3>
+                    <table className="w-full text-gray-600 dark:text-gray-300">
+                      <tbody>
+                        <tr>
+                          <td>Montag - Freitag:</td>
+                          <td>9:00 - 18:00 Uhr</td>
+                        </tr>
+                        <tr>
+                          <td>Samstag:</td>
+                          <td>Nach Vereinbarung</td>
+                        </tr>
+                        <tr>
+                          <td>Sonntag:</td>
+                          <td>Geschlossen</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+
   );
 }
