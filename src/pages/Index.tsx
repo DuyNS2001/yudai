@@ -7,7 +7,7 @@ export default function Index() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center overflow-hidden bg-white dark:bg-gray-900">
+      <section className="relative h-[80vh] flex items-center overflow-hidden bg-white dark:bg-gray-900">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 z-0"></div>
         
