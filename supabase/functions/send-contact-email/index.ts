@@ -3,7 +3,9 @@ import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
 
 // Den API-Key über die Umgebungsvariable RESEND_API_KEY abrufen
-const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+const apiKey = Deno.env.get("RESEND_API_KEY");
+console.log("API Key vorhanden:", !!apiKey);
+const resend = new Resend(apiKey);
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -25,6 +27,7 @@ serve(async (req: Request): Promise<Response> => {
     return new Response(null, { headers: corsHeaders });
   }
   try {
+    console.log("Kontaktformular-Anfrage empfangen");
     const { name, email, phone, subject, message }: ContactEmailRequest =
       await req.json();
 

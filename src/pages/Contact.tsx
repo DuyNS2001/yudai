@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -18,6 +19,7 @@ export default function Contact() {
   });
 
   const [isLoading, setIsLoading] = useState(false);
+  const [debugInfo, setDebugInfo] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
@@ -29,14 +31,19 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
+    setDebugInfo(null);
 
     try {
+      console.log("Sende Kontaktformular an Edge Function...");
+      
       const { data, error } = await supabase.functions.invoke("send-contact-email", {
         body: formState,
       });
 
       if (error) {
         console.error("Fehler bei der Edge Function:", error);
+        setDebugInfo(`Edge Function Fehler: ${JSON.stringify(error)}`);
+        
         toast({
           title: "Fehler beim Senden!",
           description:
@@ -45,6 +52,8 @@ export default function Contact() {
         });
       } else {
         console.log("E-Mail-Antwort:", data);
+        setDebugInfo(`E-Mail gesendet: ${JSON.stringify(data)}`);
+        
         toast({
           title: "Nachricht gesendet!",
           description:
@@ -60,6 +69,8 @@ export default function Contact() {
       }
     } catch (err: any) {
       console.error("Unerwarteter Fehler:", err);
+      setDebugInfo(`Unerwarteter Fehler: ${err.message || String(err)}`);
+      
       toast({
         title: "Fehler beim Senden!",
         description: (err as Error).message ?? "Unbekannter Fehler.",
@@ -108,6 +119,16 @@ export default function Contact() {
               className="hover:shadow-lg transition-shadow duration-300 p-6 rounded-lg"
             >
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Schreiben Sie uns</h2>
+              
+              {debugInfo && (
+                <Alert className="mb-4 bg-amber-50 dark:bg-amber-900/20">
+                  <AlertTitle>Debug Information:</AlertTitle>
+                  <AlertDescription className="text-xs overflow-auto max-h-32">
+                    {debugInfo}
+                  </AlertDescription>
+                </Alert>
+              )}
+              
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
@@ -191,7 +212,7 @@ export default function Contact() {
                     {isLoading ? "Senden..." : "Nachricht senden"}
                   </Button>
                   <p className="text-xs mt-2 text-gray-500 dark:text-gray-400">
-                    Hinweis: Für echten Mailversand ist eine Backend-Anbindung notwendig.
+                    Die E-Mail wird an duyyy@icloud.com gesendet.
                   </p>
                 </div>
               </form>
