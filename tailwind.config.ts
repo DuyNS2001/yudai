@@ -32,6 +32,12 @@ export default {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'
 				},
+        yudai: {
+          blue: '#004D87', // Dunkelblau aus dem Logo
+          green: '#19A97C', // Grün aus dem Logo
+          darkText: '#1F2B38', // Dunkelgrau aus dem Logo-Text
+          lightBlue: '#58B0F0', // Hellblau für Akzente
+        },
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
