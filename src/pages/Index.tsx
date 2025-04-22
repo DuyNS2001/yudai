@@ -13,7 +13,7 @@ export default function Index() {
         
         {/* Hero Background Image */}
         <img
-          src="lovable-uploads/tokyo.jpg"
+          src="lovable-uploads/herobild.avif"
           alt="New York City Skyline"
           className="absolute inset-0 object-cover w-full h-full z-0 opacity-60"
           style={{ objectPosition: "center" }}
@@ -33,14 +33,16 @@ export default function Index() {
   <span className="block">Modernes Webdesign</span>
   <span className="block text-yudai-blue dark:text-blue-400">für Ihren Online-Erfolg</span>
 </motion.h1>
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="mt-3 max-w-md text-base text-gray-500 dark:text-gray-400 sm:text-lg md:mt-5 md:text-xl bg-white/70 dark:bg-gray-900/70 px-1 rounded"
-              >
-                Yudai bietet günstiges, schnelles und modernes Webdesign speziell für kleine Unternehmen, Läden und Selbstständige.
-              </motion.p>
+<motion.p 
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5, delay: 0.2 }}
+  className="mt-3 max-w-md text-base text-gray-500 dark:text-gray-400 sm:text-lg md:mt-5 md:text-xl"
+  style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.4)' }}
+>
+  Yudai bietet günstiges, schnelles und modernes Webdesign speziell für kleine Unternehmen, Läden und Selbstständige.
+</motion.p>
+
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
