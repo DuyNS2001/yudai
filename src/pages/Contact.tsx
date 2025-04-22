@@ -86,14 +86,14 @@ export default function Contact() {
             <motion.div
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="mt-8"
+              className="w-full lg:w-2/3 mt-8 flex justify-center" // Sicherstellen, dass der Button zentral ist
             >
-              <a href="mailto:duyyy@icloud.com">
+              <a href="mailto:duyyy@icloud.com" className="w-full flex justify-center">
                 <Button className="bg-yudai-blue hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 text-white px-6 py-3">
                   E-Mail senden
                 </Button>
               </a>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
                 Die E-Mail wird an <strong>duyyy@icloud.com</strong> gesendet.
               </p>
             </motion.div>
