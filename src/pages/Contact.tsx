@@ -1,10 +1,10 @@
-
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { motion } from "framer-motion";
+import { supabase } from "@/integrations/supabase/client";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -28,20 +28,40 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    // Hier müsste ein Backend-Service integriert werden (Supabase, API etc.), um die Mail wirklich zu senden!
-    // Platzhalter-Toast:
-    toast({
-      title: "Nachricht gesendet!",
-      description:
-        "Vielen Dank für Ihre Nachricht. Wir werden uns in Kürze bei Ihnen melden. (Bitte beachten: Der Versand funktioniert erst nach Anbindung eines Backends!)",
-    });
-    setFormState({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
+
+    try {
+      const { data, error } = await supabase.functions.invoke("send-contact-email", {
+        body: formState,
+      });
+
+      if (error) {
+        toast({
+          title: "Fehler beim Senden!",
+          description:
+            "Leider konnte Ihre Nachricht nicht verschickt werden. Bitte versuchen Sie es später erneut.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Nachricht gesendet!",
+          description:
+            "Vielen Dank für Ihre Nachricht. Wir werden uns in Kürze bei Ihnen melden.",
+        });
+        setFormState({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      }
+    } catch (err: any) {
+      toast({
+        title: "Fehler beim Senden!",
+        description: (err as Error).message ?? "Unbekannter Fehler.",
+        variant: "destructive",
+      });
+    }
     setIsLoading(false);
   };
 
