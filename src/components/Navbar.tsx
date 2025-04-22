@@ -73,7 +73,7 @@ export function Navbar() {
               <img
                 src="/lovable-uploads/87c58dcc-1a08-45e9-a834-befed96b1cec.png"
                 alt="Yudai Logo"
-                 className="h-16 w-auto"
+                 className="w-[150px] h-auto"
               />
             </Link>
           </div>
