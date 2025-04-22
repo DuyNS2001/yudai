@@ -82,7 +82,6 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            {/* E-Mail Button unter den Kontaktinformationen */}
             <motion.div
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
