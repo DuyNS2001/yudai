@@ -23,15 +23,16 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="md:flex md:items-center md:justify-between">
             <div className="md:w-1/2 mb-10 md:mb-0">
-              <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl"
-              >
-                <span className="block bg-transparent/70 px-1 rounded">Modernes Webdesign</span>
-                <span className="block text-yudai-blue dark:text-blue-400 bg-transparent/70 px-1 rounded">für Ihren Online-Erfolg</span>
-              </motion.h1>
+            <motion.h1 
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+  className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl"
+  style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)' }}
+>
+  <span className="block">Modernes Webdesign</span>
+  <span className="block text-yudai-blue dark:text-blue-400">für Ihren Online-Erfolg</span>
+</motion.h1>
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
