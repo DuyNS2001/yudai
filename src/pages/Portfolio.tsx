@@ -9,42 +9,48 @@ export default function Portfolio() {
       category: "Gastronomie",
       description: "Moderne Website für ein koreanisches Restaurant mit schön gestaltende Speisekarte.",
       image: "lovable-uploads/TATCOVER.png",
-      tags: ["Webdesign", "Responsive Design", "SEO"]
+      tags: ["Webdesign", "Responsive Design", "SEO"],
+      website: "https://tatchicken.de"
     },
     {
       title: "Blumen Hoffmann",
       category: "Einzelhandel",
       description: "Elegante Webpräsenz für einen lokalen Blumenladen mit Produktgalerie und Bestellmöglichkeit.",
       image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      tags: ["Webdesign", "E-Commerce", "Lokales SEO"]
+      tags: ["Webdesign", "E-Commerce", "Lokales SEO"],
+      website: "https://blumen-hoffmann.de"
     },
     {
       title: "Rechtsanwalt Schmidt",
       category: "Dienstleistung",
       description: "Professionelle Website für eine Rechtsanwaltskanzlei mit Terminbuchungssystem.",
       image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      tags: ["Webdesign", "Terminbuchung", "Corporate Design"]
+      tags: ["Webdesign", "Terminbuchung", "Corporate Design"],
+      website: "https://ra-schmidt.de"
     },
     {
       title: "Fitness Studio Active",
       category: "Gesundheit & Fitness",
       description: "Dynamische Website für ein Fitnessstudio mit Kursplan und Mitgliederbereich.",
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      tags: ["Webdesign", "Mitgliederverwaltung", "Responsive Design"]
+      tags: ["Webdesign", "Mitgliederverwaltung", "Responsive Design"],
+      website: "https://fitnessstudio-active.de"
     },
     {
       title: "Handwerker Müller",
       category: "Handwerk",
       description: "Übersichtliche Website für einen Handwerksbetrieb mit Referenzgalerie und Kontaktformular.",
       image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      tags: ["Webdesign", "Referenzgalerie", "Lokales SEO"]
+      tags: ["Webdesign", "Referenzgalerie", "Lokales SEO"],
+      website: "https://handwerker-mueller.de"
     },
     {
       title: "Praxis Dr. Gesund",
       category: "Gesundheit",
       description: "Vertrauenerweckende Website für eine Arztpraxis mit Informationen zu Behandlungen und Online-Terminvergabe.",
       image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      tags: ["Webdesign", "Terminbuchung", "Barrierefreiheit"]
+      tags: ["Webdesign", "Terminbuchung", "Barrierefreiheit"],
+      website: "https://praxis-dr-gesund.de"
     },
   ];
 
@@ -70,18 +76,24 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {portfolioItems.map((item, index) => (
-              <div key={index} className="bg-gray-50 dark:bg-gray-700 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+              <a 
+                key={index} 
+                href={item.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-gray-50 dark:bg-gray-700 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+              >
                 <div className="h-48 overflow-hidden">
                   <img 
                     src={item.image} 
                     alt={item.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <div className="p-6">
                   <div className="flex justify-between items-start">
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{item.title}</h3>
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-yudai-blue dark:group-hover:text-blue-400 transition-colors">{item.title}</h3>
                       <p className="text-sm text-yudai-blue dark:text-blue-400 mb-2">{item.category}</p>
                     </div>
                   </div>
@@ -97,7 +109,7 @@ export default function Portfolio() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
