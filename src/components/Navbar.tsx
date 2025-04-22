@@ -23,13 +23,19 @@ export function Navbar() {
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     
     if (savedTheme) {
+      // If a theme was saved, use that
       setTheme(savedTheme);
       if (savedTheme === "dark") {
         document.documentElement.classList.add("dark");
       }
     } else if (prefersDark) {
+      // If no saved theme and system prefers dark, set to dark
       setTheme("dark");
       document.documentElement.classList.add("dark");
+    } else {
+      // Default to light mode if no preference is set
+      setTheme("light");
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 
