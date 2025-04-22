@@ -24,29 +24,13 @@ export default function Contact() {
             </p>
           </div>
 
-          {/* E-Mail Button + Kontaktinformationen nebeneinander */}
-          <div className="mt-16 flex flex-col lg:flex-row gap-10 items-start justify-center">
-            {/* Linke Spalte: E-Mail Button */}
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="w-full lg:w-1/3 text-center lg:text-left"
-            >
-              <a href="mailto:duyyy@icloud.com">
-                <Button className="bg-yudai-blue hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 text-white px-6 py-3">
-                  E-Mail senden
-                </Button>
-              </a>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                Die E-Mail wird an <strong>duyyy@icloud.com</strong> gesendet.
-              </p>
-            </motion.div>
-
-            {/* Rechte Spalte: Kontaktinformationen */}
+          {/* Kontaktinformationen + E-Mail Button */}
+          <div className="mt-16 flex flex-col items-center">
+            {/* Kontaktinformationen Box */}
             <motion.div
               whileHover={{ scale: 1.01 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="w-full lg:w-2/3 hover:shadow-lg transition-shadow duration-300"
+              className="w-full lg:w-2/3 hover:shadow-lg transition-shadow duration-300 text-center"
             >
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Kontaktinformationen</h2>
               <div className="prose dark:prose-invert">
@@ -96,6 +80,22 @@ export default function Contact() {
                   </table>
                 </div>
               </div>
+            </motion.div>
+
+            {/* E-Mail Button unter den Kontaktinformationen */}
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="mt-8"
+            >
+              <a href="mailto:duyyy@icloud.com">
+                <Button className="bg-yudai-blue hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700 text-white px-6 py-3">
+                  E-Mail senden
+                </Button>
+              </a>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                Die E-Mail wird an <strong>duyyy@icloud.com</strong> gesendet.
+              </p>
             </motion.div>
           </div>
         </div>
