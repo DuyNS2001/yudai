@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/button";
 export default function Portfolio() {
   const portfolioItems = [
     {
-      title: "Restaurant Luigi",
+      title: "Tat Chicken",
       category: "Gastronomie",
-      description: "Moderne Website für ein italienisches Restaurant mit Online-Reservierungssystem und Speisekarte.",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      tags: ["Webdesign", "Reservierungssystem", "SEO"]
+      description: "Moderne Website für ein koreanisches Restaurant mit schön gestaltende Speisekarte.",
+      image: "lovable-uploads/TATCOVER.png",
+      tags: ["Webdesign", "Responsive Design", "SEO"]
     },
     {
       title: "Blumen Hoffmann",

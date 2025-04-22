@@ -11,11 +11,6 @@ export function Footer() {
           {/* Logo and Description */}
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="inline-block">
-              <img 
-                src="/lovable-uploads/87c58dcc-1a08-45e9-a834-befed96b1cec.png" 
-                alt="Yudai Logo" 
-                className="h-10 w-auto mb-4" 
-              />
             </Link>
             <p className="text-gray-600 dark:text-gray-400 max-w-md">
               Yudai bietet günstiges, schnelles und modernes Webdesign speziell für kleine Unternehmen, 
