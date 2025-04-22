@@ -93,9 +93,6 @@ export default function Contact() {
                   E-Mail senden
                 </Button>
               </a>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">
-                Die E-Mail wird an <strong>duyyy@icloud.com</strong> gesendet.
-              </p>
             </motion.div>
           </div>
         </div>
