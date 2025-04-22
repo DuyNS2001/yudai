@@ -13,7 +13,7 @@ export default function Index() {
         
         {/* Hero Background Image */}
         <img
-          src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?auto=format&fit=crop&w=1500&q=80"
+          src="lovable-uploads/tokyo.jpg"
           alt="New York City Skyline"
           className="absolute inset-0 object-cover w-full h-full z-0 opacity-60"
           style={{ objectPosition: "center" }}
@@ -29,8 +29,8 @@ export default function Index() {
                 transition={{ duration: 0.5 }}
                 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl"
               >
-                <span className="block bg-white/70 dark:bg-gray-900/70 px-1 rounded">Modernes Webdesign</span>
-                <span className="block text-yudai-blue dark:text-blue-400 bg-white/70 dark:bg-gray-900/70 px-1 rounded">für Ihren Online-Erfolg</span>
+                <span className="block bg-transparent/70 px-1 rounded">Modernes Webdesign</span>
+                <span className="block text-yudai-blue dark:text-blue-400 bg-transparent/70 px-1 rounded">für Ihren Online-Erfolg</span>
               </motion.h1>
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
