@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -35,13 +36,15 @@ export default function Contact() {
       });
 
       if (error) {
+        console.error("Fehler bei der Edge Function:", error);
         toast({
           title: "Fehler beim Senden!",
           description:
-            "Leider konnte Ihre Nachricht nicht verschickt werden. Bitte versuchen Sie es später erneut.",
+            "Leider konnte Ihre Nachricht nicht verschickt werden. Bitte versuchen Sie es später erneut. Fehler: " + error.message,
           variant: "destructive",
         });
       } else {
+        console.log("E-Mail-Antwort:", data);
         toast({
           title: "Nachricht gesendet!",
           description:
@@ -56,6 +59,7 @@ export default function Contact() {
         });
       }
     } catch (err: any) {
+      console.error("Unerwarteter Fehler:", err);
       toast({
         title: "Fehler beim Senden!",
         description: (err as Error).message ?? "Unbekannter Fehler.",

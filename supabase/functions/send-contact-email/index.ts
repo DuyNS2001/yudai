@@ -2,7 +2,8 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
 
-const resend = new Resend(Deno.env.get("re_3yzGMSCG_AnN517yTh7oGiqGy4YzikxhR"));
+// Den API-Key über die Umgebungsvariable RESEND_API_KEY abrufen
+const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -27,8 +28,8 @@ serve(async (req: Request): Promise<Response> => {
     const { name, email, phone, subject, message }: ContactEmailRequest =
       await req.json();
 
-    // E-Mail Empfänger (ändern falls gewünscht)
-    const toMail = "info@yudai.de";
+    // E-Mail Empfänger - hier kannst du deine persönliche E-Mail-Adresse eingeben
+    const toMail = "duyyy@icloud.com"; // Hier die gewünschte Empfänger-E-Mail eintragen
 
     const html = `
       <h2>Neue Kontaktanfrage</h2>
@@ -40,8 +41,10 @@ serve(async (req: Request): Promise<Response> => {
       <p>${message.replace(/\n/g, "<br />")}</p>
     `;
 
+    console.log("Versuche E-Mail zu senden an:", toMail);
+
     const emailResponse = await resend.emails.send({
-      from: "Yudai Kontakt <onboarding@resend.dev>",
+      from: "Yudai Kontakt <onboarding@resend.dev>", // Die onboarding-Domain funktioniert immer für Tests
       to: [toMail],
       subject: `Kontaktformular: ${subject}`,
       html,
@@ -50,7 +53,7 @@ serve(async (req: Request): Promise<Response> => {
 
     console.log("Kontaktformular-Mail gesendet:", emailResponse);
 
-    return new Response(JSON.stringify({ success: true }), {
+    return new Response(JSON.stringify({ success: true, emailResponse }), {
       status: 200,
       headers: { "Content-Type": "application/json", ...corsHeaders },
     });
