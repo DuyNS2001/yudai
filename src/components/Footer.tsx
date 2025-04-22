@@ -49,6 +49,16 @@ export function Footer() {
                   Kontakt
                 </Link>
               </li>
+              <li>
+                <Link to="/impressum" className="text-gray-600 dark:text-gray-400 hover:text-yudai-blue dark:hover:text-blue-400">
+                  Impressum
+                </Link>
+              </li>
+              <li>
+                <Link to="/datenschutz" className="text-gray-600 dark:text-gray-400 hover:text-yudai-blue dark:hover:text-blue-400">
+                  Datenschutz
+                </Link>
+              </li>
             </ul>
           </div>
           

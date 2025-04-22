@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,6 +16,8 @@ export default function Contact() {
     message: "",
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormState({
       ...formState,
@@ -22,11 +25,15 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
+    // Hier müsste ein Backend-Service integriert werden (Supabase, API etc.), um die Mail wirklich zu senden!
+    // Platzhalter-Toast:
     toast({
       title: "Nachricht gesendet!",
-      description: "Vielen Dank für Ihre Nachricht. Wir werden uns in Kürze bei Ihnen melden.",
+      description:
+        "Vielen Dank für Ihre Nachricht. Wir werden uns in Kürze bei Ihnen melden. (Bitte beachten: Der Versand funktioniert erst nach Anbindung eines Backends!)",
     });
     setFormState({
       name: "",
@@ -35,6 +42,7 @@ export default function Contact() {
       subject: "",
       message: "",
     });
+    setIsLoading(false);
   };
 
   return (
@@ -154,9 +162,13 @@ export default function Contact() {
                   <Button 
                     type="submit" 
                     className="w-full bg-yudai-blue hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-700"
+                    disabled={isLoading}
                   >
-                    Nachricht senden
+                    {isLoading ? "Senden..." : "Nachricht senden"}
                   </Button>
+                  <p className="text-xs mt-2 text-gray-500 dark:text-gray-400">
+                    Hinweis: Für echten Mailversand ist eine Backend-Anbindung notwendig.
+                  </p>
                 </div>
               </form>
             </motion.div>
