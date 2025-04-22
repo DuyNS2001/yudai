@@ -1,12 +1,17 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export default function Services() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 py-20">
+      <motion.section 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 py-20"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
@@ -18,10 +23,15 @@ export default function Services() {
             </p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Main Services Section */}
-      <section className="py-12 bg-white dark:bg-gray-800">
+      <motion.section 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="py-12 bg-white dark:bg-gray-800"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center">
             <h2 className="text-base text-yudai-green font-semibold tracking-wide uppercase">Was wir bieten</h2>
@@ -33,14 +43,28 @@ export default function Services() {
             </p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Service Cards */}
-      <section className="py-12 bg-white dark:bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.section 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="py-12 bg-white dark:bg-gray-800"
+      >
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {/* Webdesign Card */}
-            <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <motion.div 
+              whileHover={{ scale: 1.02, y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300"
+            >
               <div className="h-48 bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24 text-yudai-blue dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -72,10 +96,14 @@ export default function Services() {
                   </li>
                 </ul>
               </div>
-            </div>
+            </motion.div>
 
             {/* SEO Card */}
-            <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <motion.div 
+              whileHover={{ scale: 1.02, y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300"
+            >
               <div className="h-48 bg-green-100 dark:bg-green-900 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24 text-yudai-green dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -107,10 +135,14 @@ export default function Services() {
                   </li>
                 </ul>
               </div>
-            </div>
+            </motion.div>
 
             {/* Content Card */}
-            <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <motion.div 
+              whileHover={{ scale: 1.02, y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300"
+            >
               <div className="h-48 bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24 text-purple-600 dark:text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
@@ -142,13 +174,18 @@ export default function Services() {
                   </li>
                 </ul>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
       {/* Process Section */}
-      <section className="py-12 bg-gray-50 dark:bg-gray-900">
+      <motion.section 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="py-12 bg-gray-50 dark:bg-gray-900"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:text-center mb-12">
             <h2 className="text-base text-yudai-green font-semibold tracking-wide uppercase">Unser Prozess</h2>
@@ -163,7 +200,12 @@ export default function Services() {
             <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-300 dark:bg-gray-700"></div>
 
             {/* Step 1 */}
-            <div className="relative z-10 mb-12">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative z-10 mb-12"
+            >
               <div className="flex flex-col md:flex-row items-center">
                 <div className="flex-1 md:text-right md:pr-8">
                   <div className="p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
@@ -178,10 +220,15 @@ export default function Services() {
                 </div>
                 <div className="flex-1 md:pl-8 hidden md:block"></div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Step 2 */}
-            <div className="relative z-10 mb-12">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative z-10 mb-12"
+            >
               <div className="flex flex-col md:flex-row items-center">
                 <div className="flex-1 md:text-right md:pr-8 hidden md:block"></div>
                 <div className="mx-4 md:mx-0 my-2 md:my-0 flex-shrink-0 bg-yudai-blue dark:bg-blue-600 text-white rounded-full h-12 w-12 flex items-center justify-center shadow-lg z-10">
@@ -196,10 +243,15 @@ export default function Services() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Step 3 */}
-            <div className="relative z-10 mb-12">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative z-10 mb-12"
+            >
               <div className="flex flex-col md:flex-row items-center">
                 <div className="flex-1 md:text-right md:pr-8">
                   <div className="p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
@@ -214,10 +266,15 @@ export default function Services() {
                 </div>
                 <div className="flex-1 md:pl-8 hidden md:block"></div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Step 4 */}
-            <div className="relative z-10">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative z-10"
+            >
               <div className="flex flex-col md:flex-row items-center">
                 <div className="flex-1 md:text-right md:pr-8 hidden md:block"></div>
                 <div className="mx-4 md:mx-0 my-2 md:my-0 flex-shrink-0 bg-yudai-blue dark:bg-blue-600 text-white rounded-full h-12 w-12 flex items-center justify-center shadow-lg z-10">
@@ -232,13 +289,18 @@ export default function Services() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* CTA Section */}
-      <section className="bg-yudai-green dark:bg-green-900">
+      <motion.section 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="bg-yudai-green dark:bg-green-900"
+      >
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
           <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             <span className="block">Bereit, Ihre Online-Präsenz zu verbessern?</span>
@@ -254,7 +316,7 @@ export default function Services() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 }

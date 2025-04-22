@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -71,7 +70,13 @@ export default function Index() {
 
       {/* Features Section */}
       <section className="py-12 bg-white dark:bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
           <div className="lg:text-center">
             <h2 className="text-base text-yudai-green font-semibold tracking-wide uppercase">Unsere Vorteile</h2>
             <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
@@ -84,8 +89,12 @@ export default function Index() {
 
           <div className="mt-10">
             <div className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-              {/* Feature 1 */}
-              <div className="flex">
+              {/* Feature Cards with Hover Effects */}
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="flex hover:shadow-lg transition-shadow duration-300 p-4 rounded-lg"
+              >
                 <div className="flex-shrink-0">
                   <div className="flex items-center justify-center h-12 w-12 rounded-md bg-yudai-blue text-white">
                     <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -99,10 +108,13 @@ export default function Index() {
                     Unsere Websites sind nicht nur funktional, sondern auch ästhetisch ansprechend und modern gestaltet.
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Feature 2 */}
-              <div className="flex">
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="flex hover:shadow-lg transition-shadow duration-300 p-4 rounded-lg"
+              >
                 <div className="flex-shrink-0">
                   <div className="flex items-center justify-center h-12 w-12 rounded-md bg-yudai-green text-white">
                     <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -116,10 +128,13 @@ export default function Index() {
                     Keine langen Wartezeiten - wir bringen Ihr Unternehmen schnell ins Internet.
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Feature 3 */}
-              <div className="flex">
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="flex hover:shadow-lg transition-shadow duration-300 p-4 rounded-lg"
+              >
                 <div className="flex-shrink-0">
                   <div className="flex items-center justify-center h-12 w-12 rounded-md bg-yudai-blue text-white">
                     <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -133,10 +148,13 @@ export default function Index() {
                     Professionelles Webdesign muss nicht teuer sein - wir bieten faire und transparente Preise.
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Feature 4 */}
-              <div className="flex">
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="flex hover:shadow-lg transition-shadow duration-300 p-4 rounded-lg"
+              >
                 <div className="flex-shrink-0">
                   <div className="flex items-center justify-center h-12 w-12 rounded-md bg-yudai-green text-white">
                     <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -150,10 +168,10 @@ export default function Index() {
                     Wir sorgen dafür, dass Ihre Website bei Google & Co. gut gefunden wird.
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Services Overview */}
@@ -172,7 +190,7 @@ export default function Index() {
               <div className="p-6">
                 <div className="text-yudai-blue dark:text-blue-400 text-3xl mb-4">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 01-2-2V5a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Webdesign</h3>

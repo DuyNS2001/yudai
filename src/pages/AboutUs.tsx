@@ -1,12 +1,17 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export default function AboutUs() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 py-20">
+      <motion.section 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 py-20"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
@@ -18,11 +23,17 @@ export default function AboutUs() {
             </p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Mission & Vision */}
       <section className="py-12 bg-white dark:bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
           <div className="lg:text-center">
             <h2 className="text-base text-yudai-green font-semibold tracking-wide uppercase">Unsere Mission</h2>
             <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
@@ -35,7 +46,11 @@ export default function AboutUs() {
 
           <div className="mt-16">
             <div className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-              <div className="relative">
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="relative hover:shadow-lg transition-shadow duration-300 p-4 rounded-lg"
+              >
                 <dt>
                   <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-yudai-blue text-white">
                     <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -47,9 +62,13 @@ export default function AboutUs() {
                 <dd className="mt-2 ml-16 text-base text-gray-500 dark:text-gray-400">
                   Unsere Designs sind nicht nur schön, sondern auch zweckorientiert. Sie sollen Besucher in Kunden verwandeln.
                 </dd>
-              </div>
+              </motion.div>
 
-              <div className="relative">
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="relative hover:shadow-lg transition-shadow duration-300 p-4 rounded-lg"
+              >
                 <dt>
                   <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-yudai-green text-white">
                     <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -61,9 +80,13 @@ export default function AboutUs() {
                 <dd className="mt-2 ml-16 text-base text-gray-500 dark:text-gray-400">
                   Wir verstehen, dass Zeit Geld ist. Daher setzen wir Ihre Website in Rekordzeit um.
                 </dd>
-              </div>
+              </motion.div>
 
-              <div className="relative">
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="relative hover:shadow-lg transition-shadow duration-300 p-4 rounded-lg"
+              >
                 <dt>
                   <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-yudai-blue text-white">
                     <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -75,9 +98,13 @@ export default function AboutUs() {
                 <dd className="mt-2 ml-16 text-base text-gray-500 dark:text-gray-400">
                   Unsere Preisgestaltung ist transparent und erschwinglich, speziell für kleine Unternehmen und Selbstständige.
                 </dd>
-              </div>
+              </motion.div>
 
-              <div className="relative">
+              <motion.div 
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="relative hover:shadow-lg transition-shadow duration-300 p-4 rounded-lg"
+              >
                 <dt>
                   <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-yudai-green text-white">
                     <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -89,12 +116,11 @@ export default function AboutUs() {
                 <dd className="mt-2 ml-16 text-base text-gray-500 dark:text-gray-400">
                   Wir sind immer für Sie da, wenn Sie uns brauchen, und bieten schnellen und freundlichen Support.
                 </dd>
-              </div>
+              </motion.div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
-
 
       {/* CTA Section */}
       <section className="bg-yudai-blue dark:bg-blue-900">
